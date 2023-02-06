@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #d4d4d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.istu.labapp.MainController">
+   <children>
+      <TabPane fx:id="mainTabPain" layoutX="434.0" layoutY="5.0" prefHeight="557.0" prefWidth="560.0" style="-fx-border-color: black; -fx-background-color: #ebf4f5;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Изменить размер">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="514.0" prefWidth="397.0">
+                     <children>
+                        <Button layoutX="10.0" layoutY="161.0" mnemonicParsing="false" onAction="#editSizeButton" prefHeight="25.0" prefWidth="201.0" text="Применить и сохранить" textAlignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ширина:" wrappingWidth="52.13671875" />
+                        <Text layoutX="11.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Высота:" />
+                        <TextField fx:id="widthTextField" layoutX="11.0" layoutY="30.0" prefHeight="25.0" prefWidth="138.0">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
+                        <TextField fx:id="heightTextField" layoutX="10.0" layoutY="81.0" prefHeight="25.0" prefWidth="138.0">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
+                        <RadioButton fx:id="keepAspectRatioRadioButton" layoutX="11.0" layoutY="126.0" mnemonicParsing="false" text="Сохранить соотношение сторон">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <Text layoutX="158.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="пикселей" />
+                        <Text layoutX="158.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="пикселей" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Поворот">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="356.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Угол (0-360):" />
+                        <TextField fx:id="angleOfRotationTextField" layoutX="14.0" layoutY="71.0">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
+                        <Button layoutX="14.0" layoutY="114.0" mnemonicParsing="false" onAction="#editRotationButton" prefHeight="25.0" prefWidth="214.0" text="Применить и сохранить">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <RadioButton fx:id="counterClockWiseRadioButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="366.0" text="Против ч.с.">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </RadioButton>
+                        <RadioButton fx:id="clockWiseRadioButton" layoutX="134.0" layoutY="16.0" mnemonicParsing="false" text="По ч.с.">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </RadioButton>
+                        <Text layoutX="169.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="градус(ов)" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Фильтры">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="blackAndWhiteFilterRadoButton" layoutX="40.0" layoutY="43.0" mnemonicParsing="false" text="Черно-белый">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <RadioButton fx:id="sepiaFilterRadioButton" layoutX="40.0" layoutY="133.0" mnemonicParsing="false" text="Сепия">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <Button layoutX="40.0" layoutY="176.0" mnemonicParsing="false" onAction="#applyFilterButton" text="Применить и сохранить">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <RadioButton fx:id="invertFilterRadioButton" layoutX="40.0" layoutY="86.0" mnemonicParsing="false" text="Инверсия цветов" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Конвертация">
+             <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="480.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Желаемый формат:" />
+                        <ChoiceBox fx:id="formatChoiceBox" layoutX="14.0" layoutY="30.0" prefHeight="25.0" prefWidth="108.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ChoiceBox>
+                        <Button layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#editFormatButton" prefHeight="25.0" prefWidth="284.0" text="Применить и сохранить">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Text fx:id="qualityJpgText" layoutX="160.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Качество сжатия JPG:" />
+                        <ChoiceBox fx:id="qualityJpgChoiceBox" layoutX="160.0" layoutY="30.0" prefHeight="25.0" prefWidth="119.0" />
+                        <Text fx:id="percentText" layoutX="286.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+                     </children></AnchorPane>
+             </content>
+          </Tab>
+          <Tab text="Водяной знак">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="160.0" layoutY="251.0" mnemonicParsing="false" onAction="#addWatermarkButton" prefHeight="25.0" prefWidth="152.0" text="Применить и сохранить" />
+                        <Text layoutX="160.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выбор расположения:" />
+                        <AnchorPane layoutX="160.0" layoutY="42.0" prefHeight="126.0" prefWidth="390.0" style="-fx-border-color: Black;">
+                           <children>
+                              <VBox layoutX="10.0" layoutY="3.0" prefHeight="115.0" prefWidth="371.0">
+                                 <children>
+                                    <HBox prefHeight="64.0" prefWidth="381.0">
+                                       <children>
+                                          <RadioButton fx:id="topLeftRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="120.0" text="Слева вверху" textAlignment="CENTER" />
+                                          <RadioButton fx:id="topCenterRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" text="По центру вверху" textAlignment="CENTER" />
+                                          <RadioButton fx:id="topRightRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Справа вверху" textAlignment="CENTER" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="61.0" prefWidth="381.0">
+                                       <children>
+                                          <RadioButton fx:id="centerLeftRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="120.0" text="Слева по центру" textAlignment="CENTER" />
+                                          <RadioButton fx:id="centerRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" text="Центр" textAlignment="CENTER" />
+                                          <RadioButton fx:id="centerRightButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Справа по центру" textAlignment="CENTER" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="48.0" prefWidth="371.0">
+                                       <children>
+                                          <RadioButton fx:id="bottomLeftRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="120.0" text="Слева снизу" textAlignment="CENTER" />
+                                          <RadioButton fx:id="bottomCenterRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" text="По центру снизу" textAlignment="CENTER" />
+                                          <RadioButton fx:id="bottomRightRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="125.0" text="Справа снизу" textAlignment="CENTER" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <Text layoutX="160.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Степень непрозрачности:" />
+                        <ChoiceBox fx:id="degreeOfTransparencyChoiceBox" layoutX="160.0" layoutY="204.0" prefWidth="150.0" />
+                        <Text layoutX="321.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+                        <AnchorPane layoutX="8.0" layoutY="43.0" prefHeight="387.0" prefWidth="144.0" style="-fx-border-color: Black;">
+                           <children>
+                              <RadioButton fx:id="waterMarkRadioButton1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Вариант 1" />
+                              <RadioButton fx:id="waterMarkRadioButton2" layoutX="14.0" layoutY="146.0" mnemonicParsing="false" text="Вариант 2" />
+                              <RadioButton fx:id="waterMarkRadioButton3" layoutX="14.0" layoutY="259.0" mnemonicParsing="false" text="Вариант 3" />
+                              <ImageView fitHeight="102.0" fitWidth="119.0" layoutX="14.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Image/WaterMark_Sample_1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="watermarkImageView_2" fitHeight="85.0" fitWidth="119.0" layoutX="13.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Image/WaterMark_Sample_2.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="watermarkImageView_3" fitHeight="94.0" fitWidth="119.0" layoutX="13.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Image/WaterMark_Sample_3.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Text layoutX="8.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выбор водяного знака:" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="8.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Список изображений" />
+      <Text layoutX="8.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Предпросмотр изображения" />
+      <ListView fx:id="listView" layoutX="8.0" layoutY="23.0" prefHeight="279.0" prefWidth="417.0" />
+      <AnchorPane layoutX="8.0" layoutY="321.0" prefHeight="271.0" prefWidth="417.0" style="-fx-border-color: Black; -fx-background-color: Gray;">
+         <children>
+      <!--      <ListView id="lw" fx:id="lw" layoutX="16.0" layoutY="25.0" onMouseClicked="#listViewClickOnSelectElement" prefHeight="276.0" prefWidth="410.0" /> -->
+            <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="417.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+         </children></AnchorPane>
+      <Button layoutX="436.0" layoutY="568.0" mnemonicParsing="false" onAction="#selectFilesButton" prefHeight="25.0" prefWidth="560.0" text="Выбрать изображения" textAlignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="601.0" layoutY="561.0" mnemonicParsing="false" text="Сохранить изображения" textAlignment="CENTER" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>
